@@ -1,5 +1,5 @@
 # graphql-media-upload
-Upload file with graphql
+[WIP] Upload file with graphql
 
 Image gallery SPA which demonstrates the GraphQL file uploading capabilities. Created using React, Spring boot, GraphQL and Java.
 Features: 
