@@ -7,4 +7,4 @@ Features:
   2. file extension validation (backend);
   3. list uploaded images in gallery;
   4. vote for images;
-  5. zoom image;
+  5. open image separately;

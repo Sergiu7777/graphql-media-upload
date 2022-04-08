@@ -10,7 +10,9 @@ const Gallery = () => {
         <div>
             <h2>Gallery</h2>
             <div>
-                <p>Here will be the files displayed</p>
+                <img src={"https://store.hp.com/app/assets/images/uploads/prod/25-best-hd-wallpapers-laptops159561982840438.jpg"}
+                     alt={"Image"}
+                />
             </div>
         </div>
     );
