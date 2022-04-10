@@ -1,8 +1,11 @@
 package com.example.graphqlmediaupload.graphql.mutation;
 
+import com.example.graphqlmediaupload.entity.Image;
+import com.example.graphqlmediaupload.service.ImageService;
 import graphql.kickstart.servlet.context.DefaultGraphQLServletContext;
 import graphql.kickstart.tools.GraphQLMutationResolver;
 import graphql.schema.DataFetchingEnvironment;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -15,8 +18,10 @@ import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 
 @Slf4j
+@AllArgsConstructor
 @Component
 public class UploadFileResolver implements GraphQLMutationResolver {
+    private final ImageService imageService;
 
     public UUID uploadFile(DataFetchingEnvironment environment) {
         DefaultGraphQLServletContext context =  environment.getContext();
@@ -27,10 +32,12 @@ public class UploadFileResolver implements GraphQLMutationResolver {
         return UUID.randomUUID();
     }
 
+    //TODO: move to services
     private void save(Part part, String fileName) {
+        Image image = new Image();
+
         try(InputStream inputStream = part.getInputStream()) {
-            File file = new File("/resources/uploads/" + fileName);
-            Files.copy(inputStream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            imageService.saveImage(image, inputStream);
         } catch (IOException e) {
             log.error("Error: {}", e.getMessage());
         }

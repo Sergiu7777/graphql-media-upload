@@ -15,7 +15,7 @@ public class GetStringResolver implements GraphQLQueryResolver {
         return "Hello world!!!";
     }
 
-    public ResponseEntity getImages() {
-        return new ResponseEntity(HttpStatus.OK);
+    public ResponseEntity<String> getImages() {
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

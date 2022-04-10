@@ -1,17 +1,16 @@
-package com.example.graphqlmediaupload.entity;
+package com.example.graphqlmediaupload.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.OffsetDateTime;
 
+@Builder
 @Getter
 @Setter
-@Document(collection = "images")
-public class Image {
+public class ImageDto {
     private String uuid;
-    private byte[] imageBlob;
     private int upVotes;
     private int downVotes;
     private String author;
