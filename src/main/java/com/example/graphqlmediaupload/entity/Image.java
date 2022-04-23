@@ -10,12 +10,14 @@ import java.time.OffsetDateTime;
 @Setter
 @Document(collection = "images")
 public class Image {
-    private String uuid;
-    private byte[] imageBlob;
+    private String id;
+    private String fileName;
+    private Long fileSize;
+    private String contentType;
+    private String downloadLink;
+
+//    private OffsetDateTime uploadedAt;
+    private String uploadedBy;
     private int upVotes;
     private int downVotes;
-    private String author;
-    private String downloadLink;
-    private OffsetDateTime uploadedAt;
-    private String uploadedBy;
 }

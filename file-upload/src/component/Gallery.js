@@ -1,15 +1,21 @@
 import {useQuery} from "@apollo/client";
-import {GET_STRING} from "../graphql/query";
+import {GET_IMAGES} from "../graphql/query";
 
 const Gallery = () => {
-    const {loading, error, data} = useQuery(GET_STRING);
+    const {loading, error, data} = useQuery(GET_IMAGES);
+    // if (loading) return <Loading />;
+    if (error) return <p>ERROR</p>;
+    if (!data) return <p>Not found</p>;
 
-    console.log(data);
+    // const imagesList = data.map(image => {
+    //     return <li>{image}</li>;
+    // })
 
     return (
         <div>
             <h2>Gallery</h2>
             <div>
+                {/*<div>{ imagesList }</div>*/}
                 <img src={"https://store.hp.com/app/assets/images/uploads/prod/25-best-hd-wallpapers-laptops159561982840438.jpg"}
                      alt={"Image"}
                 />

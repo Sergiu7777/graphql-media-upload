@@ -1,4 +1,4 @@
-package com.example.graphqlmediaupload.repository;
+package com.example.graphqlmediaupload.repositories;
 
 import com.example.graphqlmediaupload.entity.Image;
 import org.springframework.data.mongodb.repository.MongoRepository;
