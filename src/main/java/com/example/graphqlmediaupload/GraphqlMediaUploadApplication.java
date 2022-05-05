@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin
 @SpringBootApplication
 @EnableMongoRepositories("com.example.graphqlmediaupload.repositories")
 public class GraphqlMediaUploadApplication {

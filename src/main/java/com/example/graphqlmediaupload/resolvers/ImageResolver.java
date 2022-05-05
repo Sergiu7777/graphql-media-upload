@@ -1,4 +1,4 @@
-package com.example.graphqlmediaupload.graphql.resolvers;
+package com.example.graphqlmediaupload.resolvers;
 
 import com.example.graphqlmediaupload.entity.Image;
 import com.example.graphqlmediaupload.services.ImageService;

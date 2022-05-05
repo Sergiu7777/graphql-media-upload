@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +33,7 @@ public class ImageService {
     }
 
     private Image uploadToDB(Part part) throws IOException {
-        File targetFile = new File("src/main/resources/uploads/" + part.getSubmittedFileName());
+        File targetFile = new File("/uploads/" + part.getSubmittedFileName());
         FileUtils.copyInputStreamToFile(part.getInputStream(), targetFile);
 
         Image image = new Image();
@@ -40,7 +42,7 @@ public class ImageService {
         image.setFileSize(part.getSize());
         image.setContentType(part.getContentType());
 //        image.setUploadedAt(OffsetDateTime.now(UTC));
-        image.setDownloadLink(targetFile.getAbsolutePath());
+        image.setDownloadLink(targetFile.getPath());
 
         return imageRepository.save(image);
     }
